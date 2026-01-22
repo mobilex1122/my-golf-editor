@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useLevelStore } from '@/stores/levelStore';
 import ModEncoder from '@/utils/mod';
-import { computed } from 'vue';
+import { computed, onMounted } from 'vue';
 
 const levelState = useLevelStore();
 
@@ -18,6 +18,20 @@ function rotate(amm:number) {
 const readableRotation = computed(() => {
     var rot = ModEncoder.getRotation(levelState.mod);
     return (rot * 90) + "deg"
+})
+
+function shortcut(e:KeyboardEvent) {
+    if (e.key.toLowerCase() == "r" && !e.ctrlKey && !e.altKey) {
+        if (e.shiftKey) {
+            rotate(-1);
+        } else {
+            rotate(1);
+        }
+    }
+}
+
+onMounted(() => {
+    window.addEventListener("keyup", shortcut)
 })
 
 </script>

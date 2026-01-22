@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useTemplateRef } from 'vue';
+import { onMounted, useTemplateRef } from 'vue';
 import ImportExportDialog from './ImportExportDialog.vue';
 import { useLevelStore } from '@/stores/levelStore';
 
@@ -11,6 +11,22 @@ const clearModal = useTemplateRef("clearModal")
 
 const exportD = () => dialogE.value?.open("export")
 const importD = () => dialogE.value?.open("import")
+
+
+function shortcut(e:KeyboardEvent) {
+    if (e.shiftKey && !e.ctrlKey && !e.altKey) {
+        if (e.key.toLowerCase() == "e") {
+            exportD();
+        }
+        if (e.key.toLowerCase() == "i") {
+            importD();
+        }
+    }
+}
+
+onMounted(() => {
+    window.addEventListener("keyup", shortcut)
+})
 </script>
 
 <template>
