@@ -23,7 +23,7 @@ const rotation = computed(() => {
             skin="dock"
             @click="levelState.select(0)"
         >
-            <span style="user-select: none; cursor:default;">None</span>
+            <x-label>None</x-label>
             <x-tooltip style="--align: right;">Right Button</x-tooltip>
         </x-button>
         <x-button v-for="segment in consts.segments" size="large"

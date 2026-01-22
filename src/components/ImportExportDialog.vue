@@ -64,7 +64,7 @@ function importClose() {
             <p>Your GolfCode:</p>
             <code class="export-code">{{ exportCode }}</code>
             <footer>
-                <x-button @click="close()">Close</x-button>
+                <x-button @click="close()"><x-label>Close</x-label></x-button>
             </footer>
         </template>
 
@@ -76,8 +76,8 @@ function importClose() {
                 {{ importError }}
             </div>
             <footer>
-                <x-button @click="close()">Cancel</x-button>
-                <x-button toggled @click="importClose()">Import</x-button>
+                <x-button @click="close()"><x-label>Cancel</x-label></x-button>
+                <x-button toggled @click="importClose()"><x-label>Import</x-label></x-button>
             </footer>
         </template>
         

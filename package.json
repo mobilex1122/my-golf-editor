@@ -14,10 +14,8 @@
     "type-check": "vue-tsc --build"
   },
   "dependencies": {
-    "konva": "^10.2.0",
     "pinia": "^3.0.4",
     "vue": "^3.5.26",
-    "vue-konva": "^3.3.0",
     "xel": "^0.39.4"
   },
   "devDependencies": {
@@ -28,7 +26,6 @@
     "npm-run-all2": "^8.0.4",
     "typescript": "~5.9.3",
     "vite": "^7.3.0",
-    "vite-plugin-static-copy": "^3.1.5",
     "vite-plugin-vue-devtools": "^8.0.5",
     "vue-tsc": "^3.2.2"
   }

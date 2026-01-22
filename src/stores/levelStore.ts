@@ -35,6 +35,9 @@ export const useLevelStore = defineStore("level", {
         }
       }
     },
+    clear() {
+      this.segments = generateSegmentArray();
+    }, 
     unsetSegment(segmentNumber: number) {
       if (segmentNumber >= 0 && segmentNumber < consts.cols * consts.rows) {
         this.segments[segmentNumber] = {
