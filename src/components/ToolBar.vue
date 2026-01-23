@@ -1,37 +1,49 @@
 <script setup lang="ts">
 import { useLevelStore } from '@/stores/levelStore';
 import ModEncoder from '@/utils/mod';
-import { computed, onMounted } from 'vue';
+import { computed, onMounted, ref, useTemplateRef } from 'vue';
+import Player from './Player.vue';
+import { showToast } from '@/utils/toasts';
+import segments from '../segments.svg?seg';
 
 const levelState = useLevelStore();
+const playerModal = useTemplateRef("player")
 
-function rotate(amm:number) {
-    var rot = ModEncoder.getRotation(levelState.mod);
-    console.log("Before: ",rot);
-
-    rot +=  amm
-    rot = rot % 4;
-    var mod = ModEncoder.setRotation(levelState.mod,rot);
-    levelState.setMod(mod);
-}
 
 const readableRotation = computed(() => {
     var rot = ModEncoder.getRotation(levelState.mod);
     return (rot * 90) + "deg"
 })
 
+
+var shiftHeld = false;
 function shortcut(e:KeyboardEvent) {
     if (e.key.toLowerCase() == "r" && !e.ctrlKey && !e.altKey) {
+        e.preventDefault()
         if (e.shiftKey) {
-            rotate(-1);
+            levelState.rotate(-1);
+            
         } else {
-            rotate(1);
+            levelState.rotate(1);
         }
     }
 }
 
+
+
+function checkValid(e:Event) {
+    if (levelState.hasErrors) {
+        e.preventDefault()
+        e.stopPropagation()
+        showToast("Can't Play: " + levelState.hasErrors, "error")
+    } else {
+        playerModal.value?.showModal()
+    }
+}
+
+var playerOpen = ref(false);
 onMounted(() => {
-    window.addEventListener("keyup", shortcut)
+    window.addEventListener("keydown", shortcut)
 })
 
 </script>
@@ -39,11 +51,11 @@ onMounted(() => {
 <template>
     <x-box class="toolbar">
         <x-buttons>
-            <x-button @click="rotate(-1)">
+            <x-button @click="levelState.rotate(-1)">
                 <x-icon href="#rotate-left"></x-icon>
                 <x-tooltip style="--align: bottom;">Rotate Left</x-tooltip>
             </x-button>
-            <x-button @click="rotate(1)">
+            <x-button @click="levelState.rotate(1)">
                 <x-icon href="#rotate-right"></x-icon>
                 <x-tooltip style="--align: bottom;">Rotate Right</x-tooltip>
             </x-button>
@@ -63,12 +75,22 @@ onMounted(() => {
             <x-icon href="#refresh"></x-icon>
             <x-tooltip style="--align: bottom;">Reset Transforms</x-tooltip>
         </x-button>
+        <div style="flex-grow:1"></div>
+        <x-button @click="checkValid($event)">
+            <x-icon href="#play"/>
+            <x-tooltip>Playtest</x-tooltip>
+            
+        </x-button>
     </x-box>
+    <dialog ref="player" @toggle="playerOpen = $event.newState == 'open'">
+        <player v-if="playerOpen"></player>
+    </dialog>
 </template>
 
 <style scoped>
 
 .toolbar {
+    display: flex;
     gap: 0.5rem;
     padding: 0.5rem;
     border-bottom: 1px solid var(--border-color);

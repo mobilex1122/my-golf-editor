@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed } from 'vue';
+import { computed, watch } from 'vue';
 import MapSection from './MapSection.vue';
 
 import consts from '@/consts';
@@ -10,11 +10,22 @@ const levelState = useLevelStore();
 const map = computed(() => {
     return levelState.segments
 })
+
+watch(map,(v) => {
+    if (v.length == 0) {
+        levelState.addLevel();
+    }
+}, {immediate: true})
 </script>
 
 <template>
-    <div class="map-grid" :style="{'--rows': consts.rows, '--cols': consts.cols}">
+    <div v-if="map.length > 0" class="map-grid" :style="{'--rows': consts.rows, '--cols': consts.cols}">
         <MapSection v-for="(value,index) in map" :index :segment="value"></MapSection>
+    </div>
+    <div v-else>
+        <x-button @click="levelState.addLevel()">
+            New Level
+        </x-button>
     </div>
 </template>
 

@@ -1,0 +1,1 @@
+export type XelPopover = HTMLElement & {open(ctx:Element | EventTarget,anim?:boolean):void, close(): void}

@@ -22,6 +22,9 @@ const rotation = computed(() => {
 <template>
     <div class="box">
         <svg :style="{'rotate':rotation}" v-if="levelState.selectedId != 0" width="100%" height="100%" view-box="0 0 80 80"><use :href="segmentHrefID"></use></svg>
+        <div v-else style="display: flex;justify-content: center; align-items: center;width: 100%; height: 100%;">
+            <x-label>None</x-label>
+        </div>
     </div>
 </template>
 

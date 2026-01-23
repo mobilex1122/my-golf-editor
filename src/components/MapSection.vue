@@ -22,16 +22,29 @@ const rotation = computed(() => {
     return (rot * 90) + "deg"
 })
 
+const rotationPreview = computed(() => {
+    const rot = ModEncoder.getRotation(levelState.mod)
+
+
+    return (rot * 90) + "deg"
+})
+
 
 function rightClick() {
     levelState.unsetSegment(props.index)
 }
 
+const segmentPreviewHrefID = computed(() => {
+    return "#segment-" + levelState.selectedId
+})
+
+
 </script>
 
 <template>
     <div class="box" @click="levelState.setSegment(index)" @contextmenu.stop.prevent="rightClick()">
-        <svg :style="{'rotate':rotation}" v-if="props.segment.id != 0" width="100%" height="100%" view-box="0 0 80 80"><use :href="segmentHrefID"></use></svg>
+        <svg :style="{'rotate':rotation}" v-if="props.segment.id != 0" class="normal" width="100%" height="100%" view-box="0 0 80 80"><use :href="segmentHrefID"></use></svg>
+        <svg :style="{'rotate':rotationPreview}" class="preview" width="100%" height="100%" view-box="0 0 80 80"><use :href="segmentPreviewHrefID"></use></svg>
     </div>
 </template>
 
@@ -39,6 +52,22 @@ function rightClick() {
 .box {
     margin:0;width: 100%; height: 100%;
     position: relative;
+}
+.preview {
+    display: none;
+}
+.box:hover .preview {
+    position: absolute;
+    opacity: 0.5;
+    display: block;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.box:hover .normal {
+    opacity: 0.5;
+
 }
 .box::after {
     content: "";

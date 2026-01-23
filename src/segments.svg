@@ -2,28 +2,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="0px" id="section_1" xmlns:bx="https://boxy-svg.com">
   <title>View 1</title>
   <defs>
-    <symbol id="segment-5" viewBox="0 0 80 80">
-      <rect width="8" height="80" style="fill: rgb(28, 28, 28); stroke-width: 1;"/>
-      <rect width="72" height="72" style="fill: rgb(47, 178, 66); stroke-width: 1;" x="8" y="8"/>
-      <rect width="8" height="80" style="fill: rgb(28, 28, 28); stroke-width: 1; transform-box: fill-box; transform-origin: 50% 50%;" x="72" transform="matrix(0, 1, -1, 0, -36, -36)"/>
-      <rect width="8" height="8" style="fill: rgb(28, 28, 28); stroke-width: 1; transform-origin: 76px 4px;" x="72" transform="matrix(0, 1, -1, 0, 0.000001, 72.000001)"/>
-      <path d="M 26.258 40.716 L 79.606 94.064 L 26.258 94.064 L 26.258 40.716 Z" bx:shape="triangle 26.258 40.716 53.348 53.348 0 0 1@d1fa038c" style="fill: rgb(28, 28, 28); transform-box: fill-box; transform-origin: 50% 50%;" transform="matrix(0, 1, -1, 0, -19.257998, -33.715998)"/>
-    </symbol>
-    <symbol id="segment-4" viewBox="0 0 80 80">
-      <rect width="8" height="80" style="fill: rgb(28, 28, 28); stroke-width: 1;"/>
-      <rect width="64" height="80" style="fill: rgb(47, 178, 66); stroke-width: 1;" x="8"/>
-      <rect width="8" height="80" style="fill: rgb(28, 28, 28); stroke-width: 1;" x="72"/>
-      <rect width="8" height="80" style="fill: rgb(28, 28, 28); stroke-width: 1; transform-box: fill-box; transform-origin: 50% 50%;" x="8.43" y="-5.682" transform="matrix(0, 1, -1, 0, 27.570001, -30.318001)"/>
-      <ellipse style="" cx="40" cy="40" rx="7.817" ry="7.817"/>
-    </symbol>
-    <symbol id="segment-3" viewBox="0 0 80 80">
-      <rect width="8" height="80" style="fill: rgb(28, 28, 28); stroke-width: 1;"/>
-      <rect width="72" height="72" style="fill: rgb(47, 178, 66); stroke-width: 1;" x="8" y="8"/>
-      <rect width="8" height="80" style="fill: rgb(28, 28, 28); stroke-width: 1; transform-box: fill-box; transform-origin: 50% 50%;" x="72" transform="matrix(0, 1, -1, 0, -36, -36)"/>
-      <rect width="8" height="8" style="fill: rgb(28, 28, 28); stroke-width: 1; transform-origin: 76px 4px;" x="72" transform="matrix(0, 1, -1, 0, 0.000001, 72.000001)"/>
-    </symbol>
     <symbol id="segment-1" viewBox="0 0 80 80">
-      <title>1</title>
+      <title>Start</title>
       <rect width="8" height="80" style="fill: rgb(28, 28, 28);"/>
       <defs>
         <bx:grid x="0" y="0" width="8" height="8"/>
@@ -33,11 +13,38 @@
       <rect width="64" height="72" style="fill: rgb(47, 178, 66);" x="8" y="8"/>
       <ellipse style="fill: rgb(248, 241, 255);" cx="40" cy="40" rx="2.395" ry="2.395"/>
     </symbol>
+    <symbol id="segment-4" viewBox="0 0 80 80">
+      <title>End</title>
+      <rect width="8" height="80" style="fill: rgb(28, 28, 28); stroke-width: 1;"/>
+      <rect width="64" height="80" style="fill: rgb(47, 178, 66); stroke-width: 1;" x="8"/>
+      <rect width="8" height="80" style="fill: rgb(28, 28, 28); stroke-width: 1;" x="72"/>
+      <rect width="8" height="80" style="fill: rgb(28, 28, 28); stroke-width: 1; transform-box: fill-box; transform-origin: 50% 50%;" x="8.43" y="-5.682" transform="matrix(0, 1, -1, 0, 27.570001, -30.318001)"/>
+      <ellipse style="" cx="40" cy="40" rx="7.817" ry="7.817"/>
+    </symbol>
     <symbol id="segment-2" viewBox="0 0 80 80">
+      <title>Corridor</title>
       <rect width="8" height="80" style="fill: rgb(28, 28, 28); stroke-width: 1;"/>
       <rect width="64" height="80" style="fill: rgb(47, 178, 66); stroke-width: 1;" x="8"/>
       <rect width="8" height="80" style="fill: rgb(28, 28, 28); stroke-width: 1;" x="72"/>
     </symbol>
+    <symbol id="segment-3" viewBox="0 0 80 80">
+      <title>Turn</title>
+      <rect width="8" height="80" style="fill: rgb(28, 28, 28); stroke-width: 1;"/>
+      <rect width="72" height="72" style="fill: rgb(47, 178, 66); stroke-width: 1;" x="8" y="8"/>
+      <rect width="8" height="80" style="fill: rgb(28, 28, 28); stroke-width: 1; transform-box: fill-box; transform-origin: 50% 50%;" x="72" transform="matrix(0, 1, -1, 0, -36, -36)"/>
+      <rect width="8" height="8" style="fill: rgb(28, 28, 28); stroke-width: 1; transform-origin: 76px 4px;" x="72" transform="matrix(0, 1, -1, 0, 0.000001, 72.000001)"/>
+    </symbol>
+    <symbol id="segment-5" viewBox="0 0 80 80">
+      <title>Triangle Turn</title>
+      <rect width="8" height="80" style="fill: rgb(28, 28, 28); stroke-width: 1;"/>
+      <rect width="72" height="72" style="fill: rgb(47, 178, 66); stroke-width: 1;" x="8" y="8"/>
+      <rect width="8" height="80" style="fill: rgb(28, 28, 28); stroke-width: 1; transform-box: fill-box; transform-origin: 50% 50%;" x="72" transform="matrix(0, 1, -1, 0, -36, -36)"/>
+      <rect width="8" height="8" style="fill: rgb(28, 28, 28); stroke-width: 1; transform-origin: 76px 4px;" x="72" transform="matrix(0, 1, -1, 0, 0.000001, 72.000001)"/>
+      <path d="M 26.258 40.716 L 79.606 94.064 L 26.258 94.064 L 26.258 40.716 Z" bx:shape="triangle 26.258 40.716 53.348 53.348 0 0 1@d1fa038c" style="fill: rgb(28, 28, 28); transform-box: fill-box; transform-origin: 50% 50%;" transform="matrix(0, 1, -1, 0, -19.257998, -33.715998)"/>
+    </symbol>
+    
+    
+
     <bx:grid x="0" y="0" width="16" height="16"/>
     <bx:export>
       <bx:file format="svg" path="View 1.svg"/>

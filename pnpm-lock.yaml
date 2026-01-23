@@ -30,6 +30,9 @@ importers:
       '@vue/tsconfig':
         specifier: ^0.8.1
         version: 0.8.1(typescript@5.9.3)(vue@3.5.27(typescript@5.9.3))
+      '@xmldom/xmldom':
+        specifier: ^0.8.11
+        version: 0.8.11
       npm-run-all2:
         specifier: ^8.0.4
         version: 8.0.4
@@ -594,6 +597,10 @@ packages:
         optional: true
       vue:
         optional: true
+
+  '@xmldom/xmldom@0.8.11':
+    resolution: {integrity: sha512-cQzWCtO6C8TQiYl1ruKNn2U6Ao4o4WBBcbL61yJl84x+j5sOWWFU9X7DpND8XZG3daDppSsigMdfAIl2upQBRw==}
+    engines: {node: '>=10.0.0'}
 
   alien-signals@3.1.2:
     resolution: {integrity: sha512-d9dYqZTS90WLiU0I5c6DHj/HcKkF8ZyGN3G5x8wSbslulz70KOxaqCT0hQCo9KOyhVqzqGojvNdJXoTumZOtcw==}
@@ -1559,6 +1566,8 @@ snapshots:
     optionalDependencies:
       typescript: 5.9.3
       vue: 3.5.27(typescript@5.9.3)
+
+  '@xmldom/xmldom@0.8.11': {}
 
   alien-signals@3.1.2: {}
 

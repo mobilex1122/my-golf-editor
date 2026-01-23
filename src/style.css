@@ -6,6 +6,7 @@ body {
     width:100%;
     height: 100svh;
 
+
     --error-color: #ff5252;
 }
 
@@ -14,4 +15,9 @@ body {
     flex-direction: column;
     width:100%;
     height:100%;
+}
+
+
+x-notification.error {
+    background-color: #ff5252;
 }

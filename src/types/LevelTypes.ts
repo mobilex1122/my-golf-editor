@@ -3,9 +3,9 @@ export type LevelSegment = {
   mod: number
 }
 
+export interface LevelRef {id:number,name:string}
 
 export interface LevelData {
-  start: [number, number];
-  end: [number, number];
+  name: string,
   segments: LevelSegment[];
 }
